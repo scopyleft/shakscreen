@@ -1,0 +1,9 @@
+#baseline {width:100%}
+#content {width:100%}
+#breadcrumb {margin-left:0px; padding-left:0}
+
+#banner,
+#top_nav,
+#aside,
+#toppage
+{display:none}

@@ -1,0 +1,20 @@
+{% load_assets 'listing' %}
+
+<dl>
+{% for play in plays %}
+{% if play.film_references.adaptations.all.0 %}
+  <dt>{{ play }}</dt>
+  <dd>
+      <ul class="listing">
+          {% for adaptation in play.film_references.adaptations.all %}
+          <li>
+              <a href="{% url film adaptation.film.slug %}">
+                <label>{{ adaptation.film }}</label> - Dir. {{ adaptation.film.directors.all|join:', ' }} ({{ adaptation.film.release_date }})
+              </a>
+          </li>
+          {% endfor %}
+      </ul>
+  </dd>
+{% endif %}
+{% endfor %}
+</dl>

@@ -1,0 +1,3 @@
+<a href="{% url film film.slug %}" title="See {{ film }} details">
+    <em>{{ film }}</em> - Dir. {{ film.director }} - {{ film.countries_list|country_loop|join:', ' }} ({{film.release_date}})
+</a>

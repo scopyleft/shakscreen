@@ -1,0 +1,17 @@
+{% load mptt_tags navigation %}
+
+{% for item,structure in tree|tree_info %}
+  {% if structure.new_level %}<ul class="level{{ item.level }}"><li class="first {% in_breadcrumb breadcrumb item %}">{% else %}</li><li class="{% if structure.closed_levels %}last{% endif %} {% in_breadcrumb breadcrumb item %}">{% endif %}
+  {% spaceless %}
+    {% if item.page %}
+        <a href="{% url simplepage slug=item.page.slug %}" class="leaf">{{ item.title }}</a>
+    {% else %}
+      {% if item.url %}
+      <a href="{{ item.url }}" class="leaf">{{ item.title }}</a>
+      {% else %}
+        <span class="leaf">{{ item.title }}</span>
+      {% endif %}
+    {% endif %}
+  {% endspaceless %}
+  {% for level in structure.closed_levels %}</li></ul>{% endfor %}
+{% endfor %}

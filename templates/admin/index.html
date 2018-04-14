@@ -1,0 +1,19 @@
+{% extends "admin/dashboard.html" %}
+
+
+{% block content %}
+  {{ block.super }}
+  <div class="module">
+    <table width="100%">
+    <caption><a class="section" href="filebrowser/">Autres</a></caption>
+      <tbody>
+        <tr>
+            <th scope="row"><a href="{% url fb_browse %}">Médiathèque</a></th>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  
+{% endblock %}
+
+{% block sidebar %}{% endblock %}

@@ -1,0 +1,60 @@
+#content {
+  color: #555;
+  line-height: 1.5em;
+}
+
+#content p {
+  margin: 5px 0 10px 0;
+}
+#content a {
+  text-decoration:underline;
+  color: #666
+}
+#content a:hover {
+  color: #333;
+}
+#content ul li {
+  list-style: square outside;
+}
+
+#content h1 {
+  color: #c60;
+  font-size: 1.5em;
+}
+#content h2 {
+  color: #c90;
+  font-size: 1.3em;
+}
+#content h3 {
+  color: #c90;
+  font-size: 1.1em;
+}
+#content p, #content blockquote {
+  text-align: justify;
+}
+
+#content hr {
+  color: #C60;
+  background-color: #C60;
+  height: 1px;
+  border: 0;
+}
+
+#content .highlight {
+  background-color: #FFFBCC;
+}
+
+#content a.contributor {
+  color: #C60;
+  text-decoration: none;
+}
+
+blockquote {
+  text-indent: 1em;
+}
+
+blockquote.synopsis {
+  background-color: #FFFBCC;
+  margin: 10px 0;
+  padding: 10px;
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    <ul>
+        <li class="home"><a href="{% url homepage %}">Home</a></li>
+        <li><a href="{% link 'films' %}">Films</a></li>
+        <li><a href="{% url film reference.film.slug %}">{{ reference.film }}</a></li>
+        <li class="current"><a href="{% url film_description reference.film.id %}">Description</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{% load_assets 'film' %}
+
+<h1>{{reference.film}}. Dir. {{reference.film.directors.all|join:', '}} ({{reference.film.release_date}})</h1>
+
+<h3 id="contributor"><a href="{% url contributor reference.film.contributor.slug %}" title="See {{ reference.film.contributor.fullname }}'s profile">{{ reference.film.contributor }}</a></h3>
+
+{{reference.description|safe}}
+
+{% endblock %}

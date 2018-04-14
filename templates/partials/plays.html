@@ -1,0 +1,7 @@
+{% load_assets 'listing' %}
+
+<ul class="listing">
+{% for play in plays %}
+  <li><a href="{% url play_films play.slug %}" title="See films related to {{play}}">{{ play }}</a></li>
+{% endfor %}
+</ul>

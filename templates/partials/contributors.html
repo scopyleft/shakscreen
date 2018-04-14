@@ -1,0 +1,14 @@
+{% load_assets 'contributors' %}
+
+<ul id="contributors">
+{% for contributor in contributors %}
+  <li>
+    <a href="{% url contributor contributor.slug %}" title="View details of {{ contributor.fullname }}">
+      <img src="{{ contributor.image }}" alt="{{ contributor.fullname }}" />
+      <label>{{ contributor }}</label>
+      <p>{{ contributor.company }}</p>
+    </a>
+  </li>
+{% endfor %}
+</ul>
+<div class="clear"></div>

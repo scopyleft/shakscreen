@@ -1,0 +1,33 @@
+#contributors {
+  maring: 0;
+  padding: 0;
+}
+#content #contributors li {
+  list-style: none;
+  width: 150px;
+  height: 180px;
+  float: left;
+  margin: 15px;
+  text-align: center;
+  list-style: none;
+}
+#content #contributors li a {
+  text-decoration: none;
+}
+#content #contributors li img {	
+  border: 1px solid #999;
+  border-color:    #f90;
+  padding: 10px;
+}
+#contributors li label {
+  display: block;
+  text-align: center;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #c90;
+}
+#contributors li p {
+  margin: 0;
+  text-align: center;
+  color: #c90;
+}

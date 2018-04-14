@@ -1,0 +1,14 @@
+.listing {
+    margin: 0;
+    padding: 0;
+}
+#content .listing li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+#content .listing li a {
+    text-decoration: none;
+}
+.listing label {
+    font-style: italic;
+}

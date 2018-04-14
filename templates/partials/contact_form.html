@@ -1,0 +1,27 @@
+{% load_assets 'contact_form' %}
+
+{% if message %}
+  <p class="success">{{ message }}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <ul>
+    <li class="row">
+      {{ form.sender.errors }}
+      <label for="id_sender">Email *</label>
+      {{ form.sender }}
+    </li>
+    <li class="row">
+      {{ form.subject.errors }}
+      <label for="id_subject">Sujet *</label>
+      {{ form.subject }}
+    </li>
+    <li class="row">
+      {{ form.body.errors }}
+      <label for="id_body">Message *</label>
+      {{ form.body }}
+    </li>
+  </ul>
+  <input type="submit" class="submit" value="Envoyer" />
+</form>

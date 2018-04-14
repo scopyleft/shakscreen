@@ -1,0 +1,117 @@
+html {overflow-y:scroll; background:#c60;}
+
+body {
+  width:  800px;
+  margin: 10px auto;
+  color:  #B50;
+  background: #FFF;
+  padding: 20px;
+}
+
+#baseline {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0px 0 0px 0;
+  width: 220px;
+}
+
+#top_nav {
+  margin-top: -30px;
+}
+#top_nav ul {
+	float: right;
+	font-weight: bold;
+}
+
+#top_nav li {
+	float: left;
+	border-right: 1px solid #F90;
+}
+#top_nav li a {
+  padding:  0 10px;
+}
+
+
+#banner {
+  float: right;
+}
+
+#partners {
+	width: 180px;
+	padding: 0;
+}
+
+#partners li {
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid #f90;
+}
+
+#aside {
+  font-weight: 1.1em;
+  width: 180px;
+  margin-right: 20px;
+  float: left;
+  margin-top: -180px
+}
+#nav ul {
+  padding: 0;
+}
+#nav .level1 li {
+  position: relative;
+}
+#nav li a {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 5px;
+  border-bottom: 1px solid #f90;
+}
+#nav li:hover a, #nav .level2 a {
+  color: #666;
+  background: #fec;
+}
+#nav li:hover .level2 {
+  display: block;
+}
+#nav .level2 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 99%;
+  background: #fff;
+  width: 200px;
+  border: 1px solid #f90;
+  font-size: .9em;
+}
+#nav .level2 a:hover {
+  color: #000;
+}
+#breadcrumb {
+  clear: both;
+  margin-left: 160px;
+  padding-top: 1px;
+  height:   50px;
+}
+#breadcrumb li {
+  float: left;
+  margin-right: 15px;
+  padding-left: 0;
+  list-style: square inside;
+}
+#breadcrumb a:hover {
+  color: #333;
+}
+#content {
+  float: right;
+  width: 580px;
+}
+#footer {
+  clear: both;
+  margin:  20px 0 0 200px;
+  padding-top: 20px;
+}
+#toppage {
+  display: block;
+  margin-top: 30px;
+}

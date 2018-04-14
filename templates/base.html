@@ -1,0 +1,59 @@
+{% load_assets 'base' %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Shakespeare in movies{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="language" content="en" />
+    <meta name="robots" content="{% block robots %}{{ settings.META.robots }}{% endblock %}" />
+    
+    <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
+    
+    {% print_assets 'css' %}
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}css/print.css" />
+    {% print_assets 'js' %}
+    
+    {% analytics %}
+</head>
+
+<body>
+ 
+  <div id="header">
+    <p id="baseline">Shakespeare on Screen in Francophonia</p>
+    <div id="top_nav">
+      {% menu 'top_nav' %}
+    </div>
+    <img id="banner" src="/static/images/banners/banner{% block bannerimageid %}{% rand 1 5 %}{% endblock %}.jpg" alt="Shakespeare on screen" />
+    <div id="breadcrumb">{% block breadcrumb %}{% breadcrumb %}{% endblock %}</div>
+  </div>
+  
+  <div id="container" class="span-24">
+    <div id="aside">
+      <ul id="partners">
+        <li><a href="http://www.cnrs.org" target="_blank"><img src="/media/images/partners/www.cnrs.jpg" alt="CNRS" /></a></li>
+        <li><a href="http://www.univ-montp3.fr" target="_blank"><img src="/media/images/partners/logo_upv_2012.jpg" alt="Université Paul Valéry - Montpellier III" /></a></li>
+        <li><a href="http://www.ircl.cnrs.fr" target="_blank"><img src="/media/images/partners/www.ircl.cnrs.jpg" alt="IRCL - CNRS" /></a></li>
+      </ul>
+      <div id="nav">
+        {% menu 'main_nav' %}
+      </div>
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %}
+      
+      <a href="#" id="toppage">&lt;&lt; back to top &gt;&gt;</a>
+    </div>
+  </div>   
+  
+  <div id="footer" class="span-24">
+  © IRCL-UMR 5186 – CNRS – Université Montpellier 3
+  </div>
+  
+</body>
+
+</html>

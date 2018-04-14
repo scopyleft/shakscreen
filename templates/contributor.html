@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load templater %}
+
+{% block title %}{{ contributor.fullname }} - Shaksreen contributor{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block breadcrumb %}
+    <ul>
+        <li class="home"><a href="{% url homepage %}">Home</a></li>
+        <li><a href="{% link 'contributors' %}">Contributors</a></li>
+        <li class="current"><a href="{% url contributor contributor.slug %}">{{ contributor.fullname }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% load_assets 'contributor' %}
+    
+  <h1>Biography</h1>
+    <div class="body">
+      <img src="{{ contributor.image }}" alt="{{ contributor.fullname }}" id="portrait" />
+      <h2>{{ contributor.fullname }}</h2>
+      {% evaluate contributor.body %}
+    </div>
+    <ul class="listing">
+        {% for film in contributor.films.all %}
+        <li><a href="{% url film film.slug %}"><label>{{ film }}</label> - Dir. {{ film.directors.all|join:', ' }} ({{ film.release_date }})</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

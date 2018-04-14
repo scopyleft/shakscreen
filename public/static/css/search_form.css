@@ -1,0 +1,25 @@
+#search_form label {
+    display: inline-block;
+    width: 300px;
+}
+#search_form ul {
+    padding: 0;
+    display: inline-block;
+}
+
+#search_form ul label {
+    display: auto;
+    width: auto;
+}
+#search_form label[for="id_adaptation_0"] {
+    float: left;
+    margin-top: 10px;
+}
+
+#search_form ul li {
+    list-style:none;
+}
+
+#search_form .submit {
+    display: block;
+}

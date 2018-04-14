@@ -1,0 +1,9 @@
+{% load_assets 'listing' %}
+
+<ul class="listing">
+{% for film in films %}
+  <li>
+    {% include '_film_row.html' %}
+  </li>
+{% endfor %}
+</ul>

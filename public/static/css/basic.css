@@ -1,0 +1,20 @@
+body {
+	font-family: Arial,Sans-Serif; 
+	font-size:13px
+}
+h1 {}
+h2 {}
+h3 {}
+ul li {list-style:none;}
+
+a, a:hover, a:visited {
+	text-decoration:none; 
+	outline:none; 
+	color:inherit;
+}
+
+*|*:-moz-any-link img {border:none}
+
+.clear {clear:both; border: 0}
+
+#content {}

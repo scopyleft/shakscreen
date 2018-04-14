@@ -1,0 +1,6 @@
+<ul>
+  <li class="home"><a href="{% url homepage %}">Home</a></li>
+  {% for crumb in crumbs %}
+  <li{% if forloop.last %} class="current"{% endif %}><a href="{{ crumb.url }}">{{ crumb.label }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load templater %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block bannerimageid %}{% if page.reference == 'homepage' %}1{% else %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block breadcrumb %}{% breadcrumb page %}{% endblock %}
+
+{% block content %}
+    {% load_assets 'simplepage' %}
+    {% evaluate page.body %}
+{% endblock %}

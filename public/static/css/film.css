@@ -1,0 +1,26 @@
+#contributor {
+    text-align: right;
+}
+#contributor a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#film_poster {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+#content .navigation li {
+    margin-bottom: 10px;
+}
+#content .navigation ul {
+    margin-top: 10px;
+}
+#content .navigation ul li {
+    font-weight: bold;
+}
+
+#analyses_list p {
+  display: inline;
+}

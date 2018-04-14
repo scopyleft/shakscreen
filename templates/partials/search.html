@@ -1,0 +1,6 @@
+{% load_assets 'search_form' %}
+
+<form method="get" id="search_form" action="{% link 'search_result' %}">
+  {{ form }}
+  <input type="submit" class="submit" value="search" />
+</form>

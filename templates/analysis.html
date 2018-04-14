@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    <ul>
+        <li class="home"><a href="{% url homepage %}">Home</a></li>
+        <li><a href="{% link 'films' %}">Films</a></li>
+        <li><a href="{% url film analysis.main_film.slug %}">{{analysis.films.all|join:', '}}</li>
+        <li class="current"><a href="{% url analysis analysis.slug %}">{{ analysis }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{% load_assets 'analysis' %}
+<h1>{{ analysis.title|safe }}</h1>
+
+<div id="film_body">
+    {{ analysis.body|safe }}
+</div>
+
+<p id="contributor">Contributed by {% for contributor in analysis.contributors.all %} <a class="contributor" href="{% url contributor contributor.slug %}">{{ contributor }}</a>{% endfor %}</p>
+
+{% endblock %}

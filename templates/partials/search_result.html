@@ -1,0 +1,9 @@
+<ul>
+{% if films %}
+    {% for film in films %}
+        <li>{% include '_film_row.html' %}</li>
+    {% endfor %}
+{% else %}
+    <p>No film found matching your query</p>
+{% endif %}
+</ul>

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% load templater %}
+
+{% block breadcrumb %}
+    <ul>
+        <li class="home"><a href="{% url homepage %}">Home</a></li>
+        <li><a href="{% link 'films' %}">Films</a></li>
+        <li class="current"><a href="{% url film film.slug %}">{{ film }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{% load_assets 'film' %}
+<h1>
+    {{ film }}. Dir. {{ film.directors.all|join:', ' }} ({{ film.release_date }})
+</h1>
+
+<h3 id="contributor"><a href="{% url contributor film.contributor.slug %}" title="See {{ film.contributor.fullname }}'s profile">{{ film.contributor }}</a></h3>
+
+<h4>{{ film.play_references_types|join:', ' }}</h4>
+
+
+<ol class="navigation">
+    <li><a href="#fiche-technique">Film data</a></li>
+    <li>
+        Shakespeare play(s) :
+        <ul class="listing">
+            {% for play_reference in film.play_references.all %}
+            <li>
+                <label>{{ play_reference.play }}</label> : <a href="{% url film_description play_reference.id %}">description</a> / <a href="{% url film_quotation play_reference.id %}">quotation</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li><a href="#analysis">Analysis</a></li>
+</ol>
+
+<hr />
+
+<h2 id="fiche-technique">1. Film data</h2>
+{% if film.image %}
+<img src="{{ film.image }}" alt="{{ film.title_fr }}" id="film_poster" alt="poster of film {{ film.title_fr }}{% if film.title_en %} ({{ film.title_en }}){% endif %}" />
+{% endif %}
+<ul class="listing">
+    <li>
+        <label>{{ film }}
+            {% if film.title_aka %}
+               also known as {{ film.title_aka }}
+            {% endif %}
+            {% if film.title_en %}
+               ({{ film.title_en }})
+            {% endif %}
+        </label>
+    </li>
+    <li>
+    <label>{{ film.types.all|join:', ' }}</label>
+    </li>
+    <li>
+        <label>Director(s) : </label>
+        <span>{{ film.directors.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Cast : </label>
+        <span>{{ actors|join:', ' }}</span>
+    </li>
+    {% if film.scriptwriters.all %}
+    <li>
+        <label>Script : </label>
+        <span>{{ film.scriptwriters.all|join:', ' }}</span>
+    </li>
+    {% endif %}
+    {% if film.source %}
+    <li>
+        <label>Source : </label>
+        {% with film.source|tinymce_clean as source %}
+        <span>{% evaluate source %}</span>
+        {% endwith %}
+    </li>
+    {% endif %}
+    <li>
+        <label>Cinematography : </label>
+        <span>{{ film.cinematographers.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Editing : </label>
+        <span>{{ film.editors.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Music : </label>
+        <span>{{ film.musicians.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Design : </label>
+        <span>{{ film.designers.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Costumes : </label>
+        <span>{{ film.costume_designers.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Producer(s) : </label>
+        <span>{{ film.producers.all|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Production : </label>
+        <span>{{ film.production }}</span>
+    </li>
+    <li>
+        <label>Running time : </label>
+        <span>{{ film.length }} min.</span>
+    </li>
+    <li>
+        <label>Country(ies) : </label>
+        <span>{{ film.countries_list|country_loop|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Year : </label>
+        <span>{{ film.release_date }}</span>
+    </li>
+    <li>
+        <label>{% if film.is_color %}Color{% else %}Black &amp; white{% endif %}</label>
+    </li>
+    <li>
+        <label>Language(s) : </label>
+        <span>{{ film.languages_list|lang_loop|join:', ' }}</span>
+    </li>
+    <li>
+        <label>Video publisher : </label>
+        <span>{{ film.publisher }}{% if film.publish_date %}, {{ film.publish_date }}{% endif %}</span>
+    </li>
+    {% if film.mediums.all %}
+    <li>
+        <label>Medium(s) : </label>
+        <span>{{ film.mediums.all|join:', ' }}</span>
+    </li>
+    {% endif %}
+</ul>
+
+<div id="film_body">
+    {{ film.body|safe }}
+</div>
+
+
+<hr />
+
+<h2 id="analysis">3. Analysis</h2>
+<ul id="analyses_list">
+    {% for analysis in film.analyses.all %}
+    <li><a href="{% url analysis slug=analysis.slug %}">{{analysis.title|safe}}</a> by {{analysis.contributors.all|join:', '}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

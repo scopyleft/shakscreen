@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    <ul>
+        <li class="home"><a href="{% url homepage %}">Home</a></li>
+        <li><a href="{% link 'plays' %}">Plays</a></li>
+        <li class="current"><a href="{% url play_films play.slug %}">{{ play }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{% load_assets 'film' %}
+<h1>{{ play }} films</h1>
+
+<h2>Adaptations</h2>
+
+<ul>
+    {% for adaptation in play.film_references.adaptations.all %}
+    <li>
+        {% with adaptation.film as film %}
+        {% include '_film_row.html' %}
+        {% endwith %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>References / Allusions</h2>
+
+<ul>
+    {% for allusion in play.film_references.allusions.all %}
+    <li>
+        {% with allusion.film as film %}
+        {% include '_film_row.html' %}
+        {% endwith %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

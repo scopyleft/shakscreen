@@ -1,0 +1,10 @@
+#portrait {
+  float: right;
+  border: 1px solid #c60;
+  padding: 10px;
+  margin: 0 0 10px 10px;
+}
+
+#content .body {
+  margin-bottom: 30px;
+}
